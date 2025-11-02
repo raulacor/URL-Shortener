@@ -11,10 +11,11 @@
         <div class="container">
                 <div class="details">   
                 <form action="">
-                    <input id="urlsInput" type="text" placeholder="Place your URL">
+                    <input id="urlsInput" type="text" placeholder=" ">
+                    <label for="qrText" id="qrLabel">Input URL</label>
                     <button id="newURLs" type="submit">+</button>
                 </form>
-                    <ul id="urls-list"></ul>              
+                    <ul id="urls-list"></ul>
                 </div>
         </div>
         <script src="{{ url_for('static', filename='app.js') }}"></script>
