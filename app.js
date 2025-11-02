@@ -27,8 +27,14 @@ const addURLs = () => {
     }
 };
 const copyURLs = (index) => {
-
-
+    const urlToCopy = urlss[index].text;
+    navigator.clipboard.writeText(urlToCopy)
+        .then(() => {
+            alert(`Copied: ${urlToCopy}`);
+        })
+        .catch(err => {
+            console.error("Failed to copy text: ", err);
+        });
 };
 const deleteURLs = (index) => {
     urlss.splice(index, 1);
