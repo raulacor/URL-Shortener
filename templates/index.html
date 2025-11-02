@@ -3,20 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name='viewport' content="width=device-width, initial-scale=1.0">
-        <Title>Todo App</title>
-        <link rel="stylesheet" href="./style.css">
+        <Title>URL Shortener</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
 
     <body>
         <div class="container">
                 <div class="details">   
                 <form action="">
-                    <input id="urlsInput" type="text" placeholder="What's next?">
+                    <input id="urlsInput" type="text" placeholder="Place your URL">
                     <button id="newURLs" type="submit">+</button>
                 </form>
                     <ul id="urls-list"></ul>              
                 </div>
         </div>
-        <script src="./app.js"></script>
+        <script src="{{ url_for('static', filename='app.js') }}"></script>
     </body>
 </html>
