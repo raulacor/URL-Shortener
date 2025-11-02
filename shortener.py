@@ -1,3 +1,6 @@
+# Memória temporária para guardar URLs
+urls = []
+
 from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_cors import CORS
 from pyshorteners import Shortener
@@ -5,8 +8,6 @@ from pyshorteners import Shortener
 app = Flask(__name__)
 CORS(app)
 
-# Memória temporária para guardar URLs
-urls = []
 
 @app.route('/')
 def home():
