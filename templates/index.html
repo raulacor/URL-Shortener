@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name='viewport' content="width=device-width, initial-scale=1.0">
-        <Title>URL Shortener</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 
-    <body>
-        <div class="container">
-                <div class="details">   
-                <form action="">
-                    <input id="urlsInput" type="text" placeholder=" ">
-                    <label for="qrText" id="qrLabel">Input URL</label>
-                    <button id="newURLs" type="submit">+</button>
-                </form>
-                    <ul id="urls-list"></ul>
-                </div>
+<body>
+    <div class="container">
+        <div class="details">   
+            <form action="">
+                <div class="input-container">
+                    <input id="urlsInput" type="text" required>
+                    <label for="urlsInput" id="urlLabel">Input URL</label>
+                   
+                </div> 
+                <button id="newURLs" type="submit">+</button>
+            </form>
+            <ul id="urls-list"></ul>
         </div>
-        <script src="{{ url_for('static', filename='app.js') }}"></script>
-    </body>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
 </html>

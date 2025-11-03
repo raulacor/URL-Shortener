@@ -23,23 +23,29 @@ body{
     margin: 120px auto 0 auto;
     max-width: 500px;
 }
-.details{
-    width: 100%;
-}
-form{
-    margin-top: 60px;
-    width: 100%;
+.input-container {
+    position: relative;
     display: flex;
-    gap: 10px;
+    align-items: center;
+    border: solif #fff;
 }
-input{
+
+#urlsInput {
     flex: 1;
     padding: 10px;
     background-color: var(--secondaryBackground);
     border: 1px solid var(--accent);
     border-radius: 10px;
     outline: none;
-    color: #fff
+    width: 440px;
+    height: 50px;
+    color: var(--text)
+}
+form{
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
 }
 button{
     width: 50px;
@@ -54,10 +60,6 @@ button{
     font-weight: bold;
     outline: none;
 }
-button:hover{
-    border: 2px solid;
-    color: grey;
-}
 .container:placeholder {
     position: absolute;
     background: #fff;
@@ -71,8 +73,8 @@ button:hover{
 label {
     position: absolute;
     color: var(--text);
-    left: 33.7%;
-    top: 24%;
+    left: 2%;
+    top: 30%;
     cursor: text;
     transition: top 350ms ease-in,
         font-size 350ms ease-in;
@@ -80,7 +82,7 @@ label {
 input[type='text']:focus ~ label,
 .form__input:not(:placeholder-shown)
 .form__input:not(:focus) ~ label {
-    top: 21.55%;
+    top: -15%;
     font-size: 0.75rem;
     padding: 0 0.125em;
 }
