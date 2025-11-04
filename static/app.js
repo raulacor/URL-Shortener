@@ -27,7 +27,6 @@ const addURLs = async () => {
         const data = await res.json();
 
         if (data.short_url) {
-            // Adiciona contador de cópias ao novo item
             urlss.push({ text: originalURL, short: data.short_url, copies: 0 });
             urlsInput.value = "";
             updateURLssList();
@@ -45,11 +44,9 @@ const copyURLs = (index) => {
 
     navigator.clipboard.writeText(urlToCopy)
         .then(() => {
-            // Incrementa contador de cópias
             urlss[index].copies = (urlss[index].copies || 0) + 1;
             saveURLs();
             updateURLssList();
-
             alert(`Copiado: ${urlToCopy}`);
         })
         .catch(err => console.error("Erro ao copiar", err));
@@ -71,7 +68,7 @@ const updateURLssList = () => {
         <div class="urlsItem">
             <div class="urls">
                 <p><a href="${urls.short}" target="_blank">${urls.short}</a></p>
-                <small>Copiado ${urls.copies || 0} ${urls.copies === 1 ? 'vez' : 'vezes'}</small>
+                ${IS_ADMIN ? `<small>Copiado ${urls.copies || 0} ${urls.copies === 1 ? 'vez' : 'vezes'}</small>` : ''}
             </div>
             <div class="icons">
                 <img src="./static/img/copy.png" onClick="copyURLs(${index})" title="Copiar URL" />

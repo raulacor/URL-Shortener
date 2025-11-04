@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name='viewport' content="width=device-width, initial-scale=1.0">
@@ -9,18 +9,29 @@
 
 <body>
     <div class="container">
+        {% if admin %}
+            <h2>Admin Panel</h2>
+        {% else %}
+            <h2>URL Shortener</h2>
+        {% endif %}
+
         <div class="details">   
             <form action="">
                 <div class="input-container">
                     <input id="urlsInput" type="text" required>
                     <label for="urlsInput" id="urlLabel">Input URL</label>
-                   
                 </div> 
                 <button id="newURLs" type="submit">+</button>
             </form>
             <ul id="urls-list"></ul>
         </div>
     </div>
+
+    <script>
+        const IS_ADMIN = "{{ 'true' if admin else 'false' }}" === "true";
+        console.log("Modo admin:", IS_ADMIN);
+    </script>
+
     <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>

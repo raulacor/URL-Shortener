@@ -10,7 +10,13 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return render_template('index.html', urls=urls)
+    # Página normal (sem contador de cópias)
+    return render_template('index.html', urls=urls, admin=False)
+
+@app.route('/admin')
+def admin():
+    # Página admin (com contador de cópias)
+    return render_template('index.html', urls=urls, admin=True)
 
 @app.route('/shorten', methods=['POST'])
 def shorten():
@@ -28,12 +34,10 @@ def shorten():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 @app.route('/limpar', methods=['POST'])
 def limpar():
     urls.clear()
     return redirect(url_for('home'))
-
 
 if __name__ == '__main__':
     app.run(debug=True)
