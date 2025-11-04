@@ -63,7 +63,7 @@ const copyURLs = (index) => {
             urlss[index].copies = (urlss[index].copies || 0) + 1;
             saveURLs();
             updateURLssList();
-            alert(`Copiado: ${urlToCopy}`);
+            alert(`Copied: ${urlToCopy}`);
         })
         .catch(err => console.error("Couldn't copy", err));
 };
@@ -85,7 +85,7 @@ const updateURLssList = () => {
             <div class="urls">
                 <p><a"${urls.short }" target="_blank">Shortened: ${urls.short}</a></p>
                 ${IS_ADMIN ? `<small>Original: ${urls.original || ''}</small>` : ''}
-                ${IS_ADMIN ? `<small>Copiado ${urls.copies || 0} ${urls.copies === 1 ? 'time' : 'times'}</small>` : ''}
+                ${IS_ADMIN ? `<small>Copied: ${urls.copies || 0} ${urls.copies === 1 ? 'time' : 'times'}</small>` : ''}
             </div>
             <div class="icons">
                 <img src="./static/img/copy.png" onClick="copyURLs(${index})" title="Copy URL" />
