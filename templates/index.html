@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name='viewport' content="width=device-width, initial-scale=1.0">
-    <title>URL Shortener</title>
+    <title>{{ 'Admin Panel' if admin else 'URL Shortener' }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -16,22 +16,31 @@
         {% endif %}
 
         <div class="details">   
-            <form action="">
+            <form id="shorten-form">
                 <div class="input-container">
                     <input id="urlsInput" type="text" required>
                     <label for="urlsInput" id="urlLabel">Input URL</label>
                 </div> 
                 <button id="newURLs" type="submit">+</button>
             </form>
-            <ul id="urls-list"></ul>
+
+            <ul id="urls-list">
+                {% for item in urls %}
+                    <li>
+                        <div class="urlsItem">
+                            <div class="urls">
+                                <p><a href="{{ item.short }}" target="_blank">{{ item.short }}</a></p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
-
     <script>
         const IS_ADMIN = "{{ 'true' if admin else 'false' }}" === "true";
-        console.log("Modo admin:", IS_ADMIN);
+        console.log("Modo admin:", IS_ADMIN);   
     </script>
 
     <script src="{{ url_for('static', filename='app.js') }}"></script>
+</html>     
 </body>
-</html>
